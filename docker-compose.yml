@@ -1,0 +1,44 @@
+levpoem:
+  # image: "ybarg/levpoem"
+  build: "docker-levpoem"
+  volumes:
+    - "~/Sites/levpoem:/src"
+    - "~/Sites/hugoblogsstatic:/src/static"
+    - "~/Sites/hugoblogsthemes:/src/themes"
+  environment:
+    - "HUGO_DEST=/var/www/levpoem"
+    - "HUGO_STATIC=~/Sites/hugoblogsstatic"
+    - "HUGO_THEME=redlounge"
+#    - "HUGO_BASEURL=http://levpoem.co.il/"
+    # - "HUGO_BASEURL=http://levplocal"
+#    - "HUGO_BASEURL=http://46.101.221.201"
+    - "HUGO_WATCH=1"
+    - "HUGO_REFRESH_TIME=60"
+    - "SLEEP=15"
+    - "l1=h" # First language is Hebrew
+    - "l2=e" # Second language is English
+heartbt:
+  # image: "ybarg/heartbt"
+  build: "docker-heartbt"
+  volumes:
+    - "~/Sites/heartbt:/src"
+    - "~/Sites/hugoblogsstatic:/src/static"
+    - "~/Sites/hugoblogsthemes:/src/themes"
+  environment:
+    - "HUGO_DEST=/var/www/heartbt"
+    - "HUGO_STATIC=~/Sites/hugoblogsstatic"
+    - "HUGO_THEME=redlounge"
+    - "HUGO_BASEURL=http://192.168.99.100"
+    - "SLEEP=15"
+    - "l1=h" # First language is Hebrew
+    - "l2=e" # Second language is English
+caddy:
+  build: "docker-caddy"
+  volumes_from:
+    - "levpoem"
+    - "heartbt"
+  volumes:
+    - "~/Sites/docker-caddy/dotcaddy:/.caddy:rw"
+  ports:
+    - "80:80"
+    - "443:443"
