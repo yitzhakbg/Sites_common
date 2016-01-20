@@ -5,13 +5,22 @@ SLEEP="${HUGO_REFRESH_TIME:=-1}"
 # echo "HUGO_WATCH:" $WATCH
 # echo "HUGO_REFRESH_TIME:" $HUGO_REFRESH_TIME
 # echo "HUGO_THEME:" $HUGO_THEME
-echo "HUGO_BASEURL" $HUGO_BASEURL
+# echo "HUGO_BASEURL" $HUGO_BASEURL
 # echo "HUGO_DEST" $HUGO_DEST
 # echo "HUGO_STATIC" $HUGO_STATIC
 # echo "1st language is " $l1
 # echo "2nd language is " $l2
 
 HUGO=/usr/bin/hugo
+
+#
+# Start clean on every run:
+rm -rf $HUGO_DEST/* /tmp/*
+#
+# We don't want a content directory. hcontent and econtent will each become content in turn
+if [ -d content ]; then
+  rm -rf content
+fi
 
 # Note: This doesn't work on Mac. Apparently entr monitors the file system in the VM in which Docker is running which is
 # not the same as the host OS file system. We found that updating a file on the Mac does not trigger fmks while updating
