@@ -1,0 +1,3 @@
+# Sites_common
+Common files between sites: Docker stuff, static, themes...
+Hosting two (maybe more in the future) sites with common configuration. These are the common parts: Docker stuff and themes
