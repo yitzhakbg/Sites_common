@@ -46,7 +46,7 @@ fi
 while [ true ]
 do
 #
-    find config{$l1,$l2}.toml {$l1,$l2}content static | entr ./fmks $HUGO_DEST $HUGO_BASEURL
+    find config{$l1,$l2}.toml {$l1,$l2}content static | entr fmks $HUGO_DEST $HUGO_BASEURL
     echo "Sleeping for $HUGO_REFRESH_TIME seconds..."
     sleep $SLEEP
 done
