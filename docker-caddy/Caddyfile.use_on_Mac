@@ -1,0 +1,16 @@
+http://192.168.99.100, https://192.168.99.100 {
+  root /var/www/levpoem
+#  tls yitzhakbargeva@gmail.com
+}
+http://www.levpoem.co.il {
+  root /var/www/levpoem
+  tls off
+}
+http://www.heartbt.co.il {
+  root /var/www/heartbt
+  tls off
+}
+46.101.221.201 {
+  root /var/www/heartbt
+  tls off
+}
