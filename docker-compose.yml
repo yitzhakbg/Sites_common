@@ -3,11 +3,11 @@ levpoem:
   build: "docker-levpoem"
   volumes:
     - "~/Sites/levpoem:/src"
-    - "~/Sites/hugoblogsstatic:/src/static"
-    - "~/Sites/hugoblogsthemes:/src/themes"
+    - "~/Sites/Sites_common/hugoblogsstatic:/src/static"
+    - "~/Sites/Sites_common/hugoblogsthemes:/src/themes"
   environment:
     - "HUGO_DEST=/var/www/levpoem"
-    - "HUGO_STATIC=~/Sites/hugoblogsstatic"
+    - "HUGO_STATIC=~/Sites/Sites_common/hugoblogsstatic"
     - "HUGO_THEME=redlounge"
 #    - "HUGO_BASEURL=http://levpoem.co.il/"
     # - "HUGO_BASEURL=http://levplocal"
@@ -22,11 +22,11 @@ heartbt:
   build: "docker-heartbt"
   volumes:
     - "~/Sites/heartbt:/src"
-    - "~/Sites/hugoblogsstatic:/src/static"
-    - "~/Sites/hugoblogsthemes:/src/themes"
+    - "~/Sites/Sites_common/hugoblogsstatic:/src/static"
+    - "~/Sites/Sites_common/hugoblogsthemes:/src/themes"
   environment:
     - "HUGO_DEST=/var/www/heartbt"
-    - "HUGO_STATIC=~/Sites/hugoblogsstatic"
+    - "HUGO_STATIC=~/Sites/Sites_common/hugoblogsstatic"
     - "HUGO_THEME=redlounge"
     - "HUGO_BASEURL=http://192.168.99.100"
     - "SLEEP=15"
