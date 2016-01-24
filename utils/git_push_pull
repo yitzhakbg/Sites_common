@@ -1,0 +1,4 @@
+#
+# This is the client side of git_pull_after_push
+#
+git push && ssh 46.101.221.201 git_pull_after_push $1

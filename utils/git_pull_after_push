@@ -1,0 +1,5 @@
+set -x
+# This is a hack. The intent was to trigger a git merge via post-receives hook on the remote server. But alas, it didn't work.
+# So, this command is executed by the client (ssh 46.101.221.201 git_pull_after_push levpoem|heartbt) following git push.
+# It's client side fquivalent is git_push_pull
+docker exec -it $(docker ps |ag "$1"|cut -d' ' -f1) git pull
