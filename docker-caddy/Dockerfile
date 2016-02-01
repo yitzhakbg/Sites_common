@@ -1,18 +1,37 @@
 FROM gliderlabs/alpine:latest
-MAINTAINER Johannes Mitlmeier <dev.jojomi@yahoo.com>
+MAINTAINER Yitzhak Bar Geva <yitzhakbargeva@gmail.com>
 
 ENV CADDY_VERSION=0.8.1
-RUN apk add --update wget ca-certificates bash && \
-  wget https://github.com/mholt/caddy/releases/download/v${CADDY_VERSION}/caddy_linux_amd64.tar.gz && \
-  tar xzf caddy_linux_amd64.tar.gz && \
-  rm -r caddy_linux_amd64.tar.gz CHANGES.txt LICENSES.txt README.txt && \
-  mv caddy /usr/bin && \
+ENV HUGO_VERSION=0.15
+RUN apk add --update wget ca-certificates bash git rsync sudo && \
+#
+# Use local copy (inside utils which is mapped to /usr/local/bin) of hugo until version 0.16 comes out.
+#
+  wget https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux_amd64.tar.gz && \
+  tar xzf hugo_${HUGO_VERSION}_linux_amd64.tar.gz && \
+  rm -r hugo_${HUGO_VERSION}_linux_amd64.tar.gz && \
+  mv hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 /usr/bin/hugo && \
+  rm -r hugo_${HUGO_VERSION}_linux_amd64 && \
+  curl https://getcaddy.com | bash -s git,search && \
+  wget http://nl.alpinelinux.org/alpine/edge/testing/x86_64/entr-3.3-r0.apk && apk add --allow-untrusted entr-3.3-r0.apk && \
+  rm -fr entr-3.3-r0.apk && \
+#  mkdir -p /var/www/levpoem/src /var/www/levpoem/srv /var/www/levpoem/static /var/www/levpoem/themes /usr/local/bin /tmp/hpublic /tmp/epublic
+#  wget https://caddyserver.com/download/build?os=linux&arch=amd64&features=git/caddy_linux_amd64_custom.tar.gz && \
+#  wget https://github.com/mholt/caddy/releases/download/v${CADDY_VERSION}/caddy_linux_amd64.tar.gz && \
+#  tar xzf caddy_linux_amd64.tar.gz && \
+#  rm -r caddy_linux_amd64.tar.gz CHANGES.txt LICENSES.txt README.txt && \
+#  mv caddy /usr/bin && \
   apk del wget ca-certificates && \
-  rm /var/cache/apk/*
+  rm /var/cache/apk/* &&\
+  mkdir -p /tmp/epublic /tmp/hpublic /var/www/srv/levpoem  #/var/www/src
 
-COPY Caddyfile .
+# COPY ./Caddyfile /Caddyfile
+# COPY caddy /usr/bin
 EXPOSE 80 443 2015
 # USER  22015
 # WORKDIR /var/www/html
-# CMD ["/usr/bin/caddy"]
-ENTRYPOINT ["/usr/bin/caddy", "-agree", "-log=/caddy.log"]
+# WORKDIR /
+ENTRYPOINT ["/usr/local/bin/caddy"]
+# ENTRYPOINT ["/bin/sleep"]
+# CMD ["40000"]
+CMD ["-agree=true", "-conf=/etc/caddy/Caddyfile", "-log=/var/log/caddy.log", "-ca=https://acme-staging.api.letsencrypt.org/directory", "-email=yitzhakbargeva@gmail.com"]

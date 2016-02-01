@@ -1,5 +1,5 @@
 #!/bin/bash
-# set -x
+set -x
 WATCH="${HUGO_WATCH:=false}"
 SLEEP="${HUGO_REFRESH_TIME:=-1}"
 # echo "HUGO_WATCH:" $WATCH
@@ -17,11 +17,7 @@ HUGO=/usr/bin/hugo
 # Start clean on every run:
 rm -rf $HUGO_DEST/* /tmp/*
 #
-# We don't want a content directory. hcontent and econtent will each become content in turn
-if [ -d content ]; then
-  rm -rf content
-fi
-
+sleep 10 # Give caddy time to clone heartbt.git
 # Note: This doesn't work on Mac. Apparently entr monitors the file system in the VM in which Docker is running which is
 # not the same as the host OS file system. We found that updating a file on the Mac does not trigger fmks while updating
 # the same file inside the running Docker container does trigger even though it is the same file. This means that docker-
@@ -42,11 +38,15 @@ fi
 [[ ! ${l1+x} ]] && [[ ${l2+x} ]] && { echo "Sorry. Only one language given"; exit 1; }
 [[ ${l1+x} ]] && [[ ! ${l2+x} ]] && { echo "Sorry. Only one language given"; exit 1; }
 
+# We don't want a content directory. hcontent and econtent will each become content in turn
+if [ -d content ]; then
+  rm -rf content
+fi
 
 while [ true ]
 do
 #
-    find config{$l1,$l2}.toml {$l1,$l2}content static | entr fmks $HUGO_DEST $HUGO_BASEURL
+    find config{$l1,$l2}.toml {$l1,$l2}content ../static | entr fmks $HUGO_DEST $HUGO_BASEURL
     echo "Sleeping for $HUGO_REFRESH_TIME seconds..."
     sleep $SLEEP
 done
