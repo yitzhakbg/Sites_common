@@ -1,48 +1,37 @@
-levpoem:
-  # image: "ybarg/levpoem"
-  build: "docker-levpoem"
+caddy:
+  build: "docker-caddy"
+#  volumes_from:
+#    - "levpoem"
+#    - "heartbt"
   volumes:
-    - "~/Sites/levpoem:/src"
-    - "~/Sites/Sites_common/hugoblogsstatic:/src/static"
-    - "~/Sites/Sites_common/hugoblogsthemes:/src/themes"
-    - "~/Sites/Sites_common/utils:/usr/local/bin"
+#    - "./levpoem:/var/levpoem/src"
+#    - "./lptarg:/var/levpoem/srv"
+    - "./caddylog:/var/log"
+    - "~/.caddy:/.caddy:rw"
+    - "./Caddyfile:/etc/caddy/Caddyfile"
+    - "./hugoblogsstatic:/var/www/src/static"
+    - "./hugoblogsthemes:/var/www/src/themes"
+    - "./levpoem:/var/www/src/levpoem"
+    - "./persist:/var/www/srv/levpoem"
+    - "./utils:/usr/local/bin"
+#    - "~/Sites/Sites_common/utils:/usr/local/bin"
   environment:
-    - "HUGO_DEST=/var/www/levpoem"
+    - "HUGO_DEST=/var/www/srv/levpoem"
     - "HUGO_STATIC=~/Sites/Sites_common/hugoblogsstatic"
     - "HUGO_THEME=redlounge"
-#    - "HUGO_BASEURL=http://levpoem.co.il/"
-    - "HUGO_BASEURL=http://46.101.221.201"
-    # - "HUGO_BASEURL=http://levplocal"
+#    - "HUGO_BASEURL=https://levpoem.co.il/"
+    - "HUGO_BASEURL=http://levplocal"
+#    - "HUGO_BASEURL=http://46.101.221.201"
     - "HUGO_WATCH=1"
     - "HUGO_REFRESH_TIME=60"
     - "SLEEP=15"
     - "l1=h" # First language is Hebrew
     - "l2=e" # Second language is English
-heartbt:
-  # image: "ybarg/heartbt"
-  build: "docker-heartbt"
-  volumes:
-    - "~/Sites/heartbt:/src"
-    - "~/Sites/Sites_common/hugoblogsstatic:/src/static"
-    - "~/Sites/Sites_common/hugoblogsthemes:/src/themes"
-    - "~/Sites/Sites_common/utils:/usr/local/bin"
-  environment:
-    - "HUGO_DEST=/var/www/heartbt"
-    - "HUGO_STATIC=~/Sites/Sites_common/hugoblogsstatic"
-    - "HUGO_THEME=redlounge"
-    - "HUGO_BASEURL=http://192.168.99.100"
-    # - "HUGO_BASEURL=http://46.101.221.201"
-#    - "HUGO_BASEURL=http://heartbt.co.il"
-    - "SLEEP=15"
-    - "l1=h" # First language is Hebrew
-    - "l2=e" # Second language is English
-caddy:
-  build: "docker-caddy"
-  volumes_from:
-    - "levpoem"
-    - "heartbt"
-  volumes:
-    - "~/Sites/docker-caddy/dotcaddy:/.caddy:rw"
   ports:
     - "80:80"
     - "443:443"
+# syncthing:
+#   build: "docker-syncthing"
+#   volumes_from:
+#     - "levpoem"
+#     - "heartbt"
