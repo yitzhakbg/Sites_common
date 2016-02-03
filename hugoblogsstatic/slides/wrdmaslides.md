@@ -160,11 +160,6 @@ count: false
 # 2. Replace wire links with wireless
 .center[![:scale 96%](/images/hpc-diagram_wireless.png)]
 ---
-name: EasyToGrasp3
-count: false
-## 3. Replace compute nodes with mobile devices
-.center[![:scale 98%](/images/hpc-diagram_mobile.png)]
----
 name: 4thGen
 class: top, center, theWhiteBackground
 background-image: url("/images/4thGen.png")
@@ -326,15 +321,6 @@ background-image: url("/images/Kernel Bypass.png")
 name: RDMAIntro8
 class: top, center, theBlackBackground
 background-image: url("/images/ofed.png")
----
-name: RDMADescr1
-class: top, center, theGreyBackground
-background-image: url("/images/RDMA Mapped Over Wireless Clusters.png")
----
-name: RDMADescr2
-class: top, center, theGreyBackground
-background-image: url("/images/RDMA Over Wireless Clusters.png")
-background-repeat: no-repeat;
 ---
 name: RDMADescr3
 class: top, center, theGreyBackground
