@@ -2,12 +2,13 @@
 http://levpoem.co.il, https://levpoem.co.il, www.levpoem.co.il {
   root /var/www/srv/levpoem
 #  tls off
-  git {
-    repo https://github.com/yitzhakbg/levpoem.git
-    path ../../src/levpoem # relative to root. In actuality, /var/www/src/levpoem
-    branch master
-    then_long runhugo
-  }
+  startup startlevpoem &
+  # git {
+#    repo https://github.com/yitzhakbg/levpoem.git
+    # path ../../src/levpoem # relative to root. In actuality, /var/www/src/levpoem
+    # branch master
+    # then_long runhugo
+  # }
 }
 #http://levpoem.co.il {
 #  root /var/www/srv/levpoem
