@@ -6,6 +6,10 @@
 # rename top index.html to hindex.html then merge all into the English site.
 # Result is to have both English and Hebrew cooexisting in the same branch
 #
+# if econtent trigger exists, it was only to trigger an entr rebuild. Delete it
+[ -e econtent/trigger ] && rm econtent/trigger
+
+git pull # for good measure
 
 targ=$1
 l1targ=/tmp/${l1}public

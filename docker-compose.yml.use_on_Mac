@@ -1,37 +1,40 @@
-caddy:
-  build: "docker-caddy"
-#  volumes_from:
-#    - "levpoem"
-#    - "heartbt"
-  volumes:
-#    - "./levpoem:/var/levpoem/src"
-#    - "./lptarg:/var/levpoem/srv"
-    - "./caddylog:/var/log"
-    - "~/.caddy:/.caddy:rw"
-    - "./Caddyfile:/etc/caddy/Caddyfile"
-    - "./hugoblogsstatic:/var/www/src/static"
-    - "./hugoblogsthemes:/var/www/src/themes"
-    - "./levpoem:/var/www/src/levpoem"
-    - "./persist:/var/www/srv/levpoem"
-    - "./utils:/usr/local/bin"
-#    - "~/Sites/Sites_common/utils:/usr/local/bin"
-  environment:
-    - "HUGO_DEST=/var/www/srv/levpoem"
-    - "HUGO_STATIC=~/Sites/Sites_common/hugoblogsstatic"
-    - "HUGO_THEME=redlounge"
-#    - "HUGO_BASEURL=https://levpoem.co.il/"
-    - "HUGO_BASEURL=http://levplocal"
-#    - "HUGO_BASEURL=http://46.101.221.201"
-    - "HUGO_WATCH=1"
-    - "HUGO_REFRESH_TIME=60"
-    - "SLEEP=15"
-    - "l1=h" # First language is Hebrew
-    - "l2=e" # Second language is English
-  ports:
-    - "80:80"
-    - "443:443"
-# syncthing:
-#   build: "docker-syncthing"
-#   volumes_from:
-#     - "levpoem"
-#     - "heartbt"
+version: 2
+services:
+  caddy:
+    container_name: caddy4hugo
+    build: "docker-caddy"
+  #  volumes_from:
+  #    - "levpoem"
+  #    - "heartbt"
+    volumes:
+  #    - "./levpoem:/var/levpoem/src"
+  #    - "./lptarg:/var/levpoem/srv"
+      - "./caddylog:/var/log"
+      - "~/.caddy:/.caddy:rw"
+      - "./Caddyfile:/etc/caddy/Caddyfile"
+      - "./hugoblogsstatic:/var/www/src/static"
+      - "./hugoblogsthemes:/var/www/src/themes"
+      # - "./levpoem:/var/www/src/levpoem"
+#      - "./persist:/var/www/srv/levpoem"
+      - "./utils:/usr/local/bin"
+  #    - "~/Sites/Sites_common/utils:/usr/local/bin"
+    environment:
+      - "HUGO_DEST=/var/www/srv/levpoem"
+      - "HUGO_STATIC=~/Sites/Sites_common/hugoblogsstatic"
+      - "HUGO_THEME=redlounge"
+  #    - "HUGO_BASEURL=https://levpoem.co.il/"
+      - "HUGO_BASEURL=http://levplocal"
+  #    - "HUGO_BASEURL=http://46.101.221.201"
+      - "HUGO_WATCH=1"
+      - "HUGO_REFRESH_TIME=60"
+      - "SLEEP=15"
+      - "l1=h" # First language is Hebrew
+      - "l2=e" # Second language is English
+    ports:
+      - "80:80"
+      - "443:443"
+  # syncthing:
+  #   build: "docker-syncthing"
+  #   volumes_from:
+  #     - "levpoem"
+  #     - "heartbt"
