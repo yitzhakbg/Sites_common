@@ -381,7 +381,7 @@ background-image: url("/images/Soft RoCE.png")
 name: RDMADescr17
 class: top, center, theWhiteBackground
 background-image: url("/images/Soft RoCE.png")
--
+---
 name: RDMADescr18
 class: top, center, theWhiteBackground
 background-image: url("/images/Virtualized_RDMA.png")
