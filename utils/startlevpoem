@@ -1,9 +1,0 @@
-#!/bin/bash
-#
-# Use with Caddy startup command to clone levpoem and run Hugo
-#
-# set -x
-[ -d /var/www/src/levpoem ] && rm -rf /var/www/src/levpoem
-git clone --depth 1 https://github.com/yitzhakbg/levpoem /var/www/src/levpoem
-cd /var/www/src/levpoem
-runhugo

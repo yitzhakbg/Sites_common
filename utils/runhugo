@@ -1,12 +1,15 @@
 #!/bin/bash
 # set -x
+[ $# -eq 0 ] && { echo "Usage: $0 destination not given"; exit 1; }
+HUGO_DEST=/var/www/srv/$1
+HUGO_BASEURL=https://$1.co.il
 WATCH="${HUGO_WATCH:=false}"
 SLEEP="${HUGO_REFRESH_TIME:=-1}"
 # echo "HUGO_WATCH:" $WATCH
 # echo "HUGO_REFRESH_TIME:" $HUGO_REFRESH_TIME
 # echo "HUGO_THEME:" $HUGO_THEME
-# echo "HUGO_BASEURL" $HUGO_BASEURL
-# echo "HUGO_DEST" $HUGO_DEST
+echo "HUGO_BASEURL" $HUGO_BASEURL
+echo "HUGO_DEST" $HUGO_DEST
 # echo "HUGO_STATIC" $HUGO_STATIC
 # echo "1st language is " $l1
 # echo "2nd language is " $l2
@@ -47,7 +50,8 @@ fi
 while [ true ]
 do
 #
-    find config{$l1,$l2}.toml {$l1,$l2}content layouts ../static ../themes | entr fmks $HUGO_DEST $HUGO_BASEURL
+#    find config{$l1,$l2}.toml {$l1,$l2}content layouts ../static ../themes | entr -r fmks $HUGO_DEST $HUGO_BASEURL
+    find confige.toml configh.toml econtent hcontent layouts ../static ../themes | entr -r fmks $HUGO_DEST $HUGO_BASEURL
     echo "Sleeping for $HUGO_REFRESH_TIME seconds..."
     sleep $SLEEP
 done

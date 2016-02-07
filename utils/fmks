@@ -9,7 +9,7 @@
 # if econtent trigger exists, it was only to trigger an entr rebuild. Delete it
 [ -e econtent/trigger ] && rm econtent/trigger
 
-git pull # for good measure
+git pull --depth=5 # for good measure
 
 targ=$1
 l1targ=/tmp/${l1}public
