@@ -5,6 +5,7 @@
 [ $# -eq 0 ] && { echo "Usage: $0 destination not given"; exit 1; }
 [ -d /var/www/src/$1 ] && rm -rf /var/www/src/$1
 git clone --depth=5 https://github.com/yitzhakbg/$1 /var/www/src/$1
+sleep 10
 cd /var/www/src/$1
 # If given, the second parameter is the BaseUrl. If not, BaseUrl is built by default from the 1st parameter
 # echo "\$@ is " $@
