@@ -1,19 +1,16 @@
 #!/bin/bash
 # set -x
-[ $# -eq 0 ] && { echo "Usage: $0 destination not given"; exit 1; }
-[ $# -eq 1 ] && { echo "Usage: $0 baseURL not given"; exit 1; }
+[ $# -lt 3 ] && { echo "Usage: $0 destination, BaseUrl or site name not given"; exit 1; }
 # Script to generate Hebrew site, rename index.xml files and their references to hindex.xml,
 # rename top index.html to hindex.html then merge all into the English site.
 # Result is to have both English and Hebrew cooexisting in the same branch
 #
-# if econtent trigger exists, it was only to trigger an entr rebuild. Delete it
-[ -e econtent/trigger ] && rm econtent/trigger
 
-git pull --depth=5 # for good measure
+# git pull --depth=5 # for good measure
 
 targ=$1
-l1targ=/tmp/${l1}public
-l2targ=/tmp/${l2}public
+l1targ=/tmp/${l1}/$3/public
+l2targ=/tmp/${l2}/$3/public
 l1content=${l1}content
 l2content=${l2}content
 l1index=${l1}index
@@ -21,8 +18,8 @@ lindex=${l2}index
 l1config=config${l1}.toml
 l2config=config${l2}.toml
 
-[[ ! -d ${l1content} ]] && [[ -d ${l2content} ]] && { echo "There is only one content directory. Second one missing"; exit 1; }
-[[ -d ${l1content} ]] && [[ ! -d ${l2content} ]] && { echo "There is only one content directory. Second one missing"; exit 1; }
+[[ ! -d ${l1content} ]] && { echo "${l1content} directory missing"; exit 1; }
+[[ ! -d ${l2content} ]] && { echo "${l2content} directory missing"; exit 1; }
 # Hebrew (first language) section
 hugo --config="${l1config}" -d ${l1targ} -t $HUGO_THEME -b $2 # Make Hebrew site in hpublic
 # Change the string "index.xml" appearing in all the files named index.* to "hindex.xml"

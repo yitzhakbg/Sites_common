@@ -52,8 +52,8 @@ fi
 while [ true ]
 do
 #
-#    find config{$l1,$l2}.toml {$l1,$l2}content layouts ../static ../themes | entr -r fmks $HUGO_DEST $HUGO_BASEURL
-    find confige.toml configh.toml econtent hcontent layouts ../static ../themes | entr -r fmks $HUGO_DEST $HUGO_BASEURL
+#    find config{$l1,$l2}.toml {$l1,$l2}content layouts ../static ../themes | entr -r fmks $HUGO_DEST $HUGO_BASEURL $1
+    find confige.toml configh.toml econtent hcontent layouts ../static ../themes | entr -r fmks $HUGO_DEST $HUGO_BASEURL $1
     echo "Sleeping for $HUGO_REFRESH_TIME seconds..."
     sleep $SLEEP
 done
