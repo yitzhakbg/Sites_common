@@ -1,0 +1,21 @@
+# http://46.101.221.201, https://46.101.221.201 {
+http://levpoem.co.il, https://levpoem.co.il, www.levpoem.co.il {
+# http://levplocal.co.il, https://levplocal.co.il, www.levplocal.co.il {
+  root /var/www/srv/levpoem
+#   tls off
+#   startup startsite levpoem http://levplocal.co.il & # Use on Mac
+  startup startsite levpoem & # Use on DO server
+  # git {
+#    repo https://github.com/yitzhakbg/levpoem.git
+    # path ../../src/levpoem # relative to root. In actuality, /var/www/src/levpoem
+    # branch master
+    # then_long runhugo
+  # }
+}
+http://heartbt.co.il, https://heartbt.co.il, www.heartbt.co.il {
+# http://heartblocal.co.il, https://heartblocal.co.il, www.heartblocal.co.il {
+  root /var/www/srv/heartbt
+#   tls off
+#   startup startsite heartbt http://heartblocal.co.il & # use on Mac
+  startup startsite heartbt & # Use on DO server
+}

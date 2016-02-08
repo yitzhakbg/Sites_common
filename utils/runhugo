@@ -1,8 +1,10 @@
 #!/bin/bash
-# set -x
+# If BaseUrl isn't given explicitly as the second parameter, it will be made by default from the 1st parameter
 [ $# -eq 0 ] && { echo "Usage: $0 destination not given"; exit 1; }
+[ $# -eq 1 ] && { echo "Usage: $0 BaseURL not given. Using default"; HUGO_BASEURL=https://$1.co.il; }
+[ $# -eq 2 ] && { echo "Usage: $0 BaseURL is $2"; HUGO_BASEURL=$2; }
 HUGO_DEST=/var/www/srv/$1
-HUGO_BASEURL=https://$1.co.il
+# HUGO_BASEURL=http://$BASH_ARGV.co.il
 WATCH="${HUGO_WATCH:=false}"
 SLEEP="${HUGO_REFRESH_TIME:=-1}"
 # echo "HUGO_WATCH:" $WATCH
