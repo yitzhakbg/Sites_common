@@ -1,7 +1,8 @@
 layout: true
 class: left, top, theYellowBackground
-.tohome[[![:scale 30%](/images/home-icon.png "home")](http://levpoem.co.il)]
+.tohome[[![:scale 30%](/images/home-icon.png "home")](../..)]
 ---
+name: OpeningPage
 class: center, middle, main-title, inverse
 # Disrupting the Internet
 ## Wireless RDMA on D2D Mobile Devices
@@ -120,6 +121,23 @@ count: false
 <div class="embed video-player">
 <iframe width="800" height="600" src="https://www.youtube.com/v/J9t_Vt2jJLI?list=PL1ACKARftyBC3Aun18Mj_9lz5h0K1vHiQ&start=0&rel=0&autoplay=1&controls=1&fs=1&loop=0&vq=hd720&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
 </div>
+---
+
+name: LeftBehind
+class: left, top
+
+## Today's Internet/Cloud
+
+## Modern day analogy of the Mainframe Age
+
+.left.medium[
+### Remote resources at great distances
+- Generates enormous traffic flows
+- Dependent on providers
+- Communications strata is bulky and wasteful
+- Development stymied by protocols
+- Computation and communications are disparate regimes
+]
 ---
 
 ## High Protocol Wall
