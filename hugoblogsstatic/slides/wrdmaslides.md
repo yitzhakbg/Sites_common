@@ -140,14 +140,14 @@ class: left, top
 ]
 ---
 
-## High Protocol Wall
+## High Protocol Wall (networking today)
 
 ![:scale 100%](/images/TCPIPStackHiWall1.png)
 
 ---
 count: false
 
-## Low Protocol Wall
+## Low Protocol Wall (RDMA is even slimmer)
 ![:scale 100%](/images/TCPIPStackLoWall.png)
 
 ---
@@ -161,11 +161,11 @@ class: left, top
 name: cellularD2D
 class: left, top
 # .center[Cellular D2D]
-Cellular D2D can turn mobile/wireless device clusters into the next generation application platform.
+Close proximity D2D mobile or wireless device _cluster-carpets_ are the next generation application platform. _Cluster-Carpet_ is a cluster woven so tightly that individual devices are indistinguishable to the application.
 
-Development of distributed apps over on-the-fly clusters in the cloud is rapidly gaining popularity, but today’s networking strata is sorely lacking for the job.
+Distributed apps over on-the-fly clusters in the cloud are gaining popularity, but todays networking strata is sorely lacking for the job and remote clouds are unnecessary for close-proximity applications.
 
-The widely used RDMA clustering model with verbs programming has been a standard in HPC data centers for decades. RDMA on mobile clusters is ideal for writing distributed applications with their own custom networking schemes.
+The widely used RDMA clustering model with verbs programming has been a standard in HPC data centers for decades. Becomes the ideal model for wireless carpets. Cluster-carpet applications are <u>_unaware_ of being distributed</u>.
 
 # **Easy to grasp model**...
 ---
@@ -175,7 +175,7 @@ name: EasyToGrasp1
 ---
 name: EasyToGrasp2
 count: false
-# 2. Replace wire links with wireless
+# 2. Replace the wire links with wireless
 .center[![:scale 96%](/images/hpc-diagram_wireless.png)]
 ---
 name: 4thGen
@@ -196,10 +196,11 @@ name: entirelynew1
 Order of magnitude more clusters than devices
 - Multicore mobile devices, powerhouses
 
-- Much higher device density
+- Much higher device density. Bulk of the world's computational power is everywhere
 
 Orthogonal to the Internet
-- Not out to change or improve the Internet
+- Doesn't change or improve the Internet but coexists with the Internet.
+  - Every cluster-carpet can (but doesn't have to) be an IP addressable node.
 ]
 ---
 count: false
@@ -226,16 +227,13 @@ name: entirelynew3
 
 # .center[Entirely new network/computing realm]
 .left-column[
-  ### Programming
+  ### Programming and applications
 ]
 .right-column.medium[
-Network code above the protocol wall
-- is programmable application code
+Network code above the protocol wall evolves at software speed
 
-- New networking paradigms can evolve freely, at software speed
-
-- _Comes out of the closet_ with new tools and languages
-]
+People and device Swarm applications</br>Mob data mining and Virtual Reality
+.left[![:scale 90%](/images/people_swarm.jpg)]]
 ---
 count: false
 name: entirelynew4
@@ -244,11 +242,11 @@ class: left, top
 # .center[Entirely new network/computing realm]
 
 .left.medium[
-### Clustering
-- Devices can pool their cores and storage
+### Cluster-Carpeting
+- Devices pool their cores and storage
 - Devices can belong to multiple clusters simultaneously 
-- Every cluster can (optionally) be an IP addressable node
-   - tens of billions of Internet devices now become trillions
+- Every carpet can (optionally) be an IP addressable node
+   - tens of billions of Internet devices become trillions
 - Clusters can cluster
    - Multi-million node global clusters
 
@@ -302,6 +300,16 @@ background-image: url("/images/Challenges.png")
 name: NotSoSimple3
 class: top, center, theGreyBackground
 background-image: url("/images/NothingWeDont.png")
+---
+name: implementation_ideas
+class: top, left
+# .center[Doable implementation ideas]
+
+## [Erlang RTS over RDMA (like JVM 7)](#RDMADescr6)
+- Hand in glove with the cluster-carpet model
+  - Erlang easily propagates processes over all cores
+- [Dual Androids in one device with Xen](https://vimeo.com/78023395)
+- [Erlang on Xen](http://erlangonxen.org/)
 ---
 name: nutshell
 class: left, top
