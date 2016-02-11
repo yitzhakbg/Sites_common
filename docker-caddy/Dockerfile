@@ -34,4 +34,8 @@ EXPOSE 80 443 2015
 ENTRYPOINT ["/usr/local/bin/caddy"]
 # ENTRYPOINT ["/bin/sleep"]
 # CMD ["40000"]
-CMD ["-agree=true", "-conf=/etc/caddy/Caddyfile", "-log=/var/log/caddy.log", "-ca=https://acme-staging.api.letsencrypt.org/directory", "-email=yitzhakbargeva@gmail.com"]
+#
+# Staging directory is used during testing phase when there are frequent certificate requests
+#
+# CMD ["-agree=true", "-conf=/etc/caddy/Caddyfile", "-log=/var/log/caddy.log", "-ca=https://acme-staging.api.letsencrypt.org/directory", "-email=yitzhakbargeva@gmail.com"]
+CMD ["-agree=true", "-conf=/etc/caddy/Caddyfile", "-log=/var/log/caddy.log", "-email=yitzhakbargeva@gmail.com"]
