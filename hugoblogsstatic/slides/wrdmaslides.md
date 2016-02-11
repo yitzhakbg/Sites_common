@@ -188,51 +188,51 @@ name:LetItSinkIn
 ---
 name: entirelynew1
 
-# .center[Entirely new network/computing realm]
+# .center[New network/computing realm]
 .left-column[
   ## Power
 ]
 .right-column.medium[
-Order of magnitude more clusters than devices
+### Order of magnitude more clusters than devices
 - Multicore mobile devices, powerhouses
+- Much higher device density.
+- World's computational power is everywhere
 
-- Much higher device density. Bulk of the world's computational power is everywhere
-
-Orthogonal to the Internet
-- Doesn't change or improve the Internet but coexists with the Internet.
-  - Every cluster-carpet can (but doesn't have to) be an IP addressable node.
+### Orthogonal to the Internet
+- Doesn't change or improve the Internet
+- Coexists with the Internet.
+- Cluster-carpets can be IP addressable.
 ]
 ---
 count: false
 name: entirelynew2
 
-# .center[Entirely new network/computing realm]
+# .center[New network/computing realm]
 .left-column[
   ## Traffic
 ]
 .right-column.medium[
-No need for external service providers
+### No need for external service providers
 
-Intra-cluster network traffic
-
+### Intra-cluster network traffic
 - Close proximity means speed
-
 - No burden on existing infrastructure
-
-- Wireless routing opens numerous possibilities
+- Weave carpet-clusters together
 ]
 ---
 count: false
 name: entirelynew3
 
-# .center[Entirely new network/computing realm]
+# .center[New network/computing realm]
 .left-column[
   ### Programming and applications
 ]
 .right-column.medium[
-Network code above the protocol wall evolves at software speed
+- Networking evolves at software speed
+- People and device Swarm applications
+- Classic for military deployment
+- Mob data mining and Virtual Reality
 
-People and device Swarm applications</br>Mob data mining and Virtual Reality
 .left[![:scale 90%](/images/people_swarm.jpg)]]
 ---
 count: false
