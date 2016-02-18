@@ -22,8 +22,10 @@ RUN apk add --update wget ca-certificates bash git rsync sudo && \
 #  rm -r caddy_linux_amd64.tar.gz CHANGES.txt LICENSES.txt README.txt && \
 #  mv caddy /usr/bin && \
   apk del wget ca-certificates && \
-  rm /var/cache/apk/* &&\
-  mkdir -p /tmp/epublic /tmp/hpublic /var/www/srv/levpoem  #/var/www/src
+  rm /var/cache/apk/* && \
+  git clone --depth=5 https://github.com/yitzhakbg/heartbt /var/www/src/heartbt && \
+  git clone --depth=5 https://github.com/yitzhakbg/levpoem /var/www/src/levpoem && \
+  mkdir -p /tmp/epublic /tmp/hpublic /var/www/srv/heartbt /var/www/srv/levpoem  #/var/www/src
 
 # COPY ./Caddyfile /Caddyfile
 # COPY caddy /usr/bin
@@ -31,6 +33,8 @@ EXPOSE 80 443 2015
 # USER  22015
 # WORKDIR /var/www/html
 # WORKDIR /
+# COPY letsencrypt /etc/letsencrypt
+# COPY /etc/letsencrypt/live/heartbt.co.il/privkey.pem /etc/letsencrypt/live/heartbt.co.il/privkey.pem
 ENTRYPOINT ["/usr/local/bin/caddy"]
 # ENTRYPOINT ["/bin/sleep"]
 # CMD ["40000"]

@@ -1,10 +1,10 @@
-# http://46.101.221.201, https://46.101.221.201 {
-# http://levpoem.co.il, https://levpoem.co.il, www.levpoem.co.il {
-http://levplocal.co.il, https://levplocal.co.il, www.levplocal.co.il {
-  root /var/www/srv/levpoem
-  tls off
-  startup startsite levpoem http://levplocal.co.il & # Use on Mac
-#  startup startsite levpoem & # Use on DO server
+http://levpoem.co.il, http://www.levpoem.co.il {
+# http://levplocal.co.il, https://levplocal.co.il, www.levplocal.co.il {
+   root /var/www/srv/levpoem
+   tls off
+#  tls /etc/letsencrypt/live/levpoem.co.il/fullchain.pem /etc/letsencrypt/live/levpoem.co.il/privkey.pem
+   startup startsite levpoem http://www.levpoem.co.il & # Use on DO server
+# startup startsite levpoem http://levplocal.co.il & # Use on Mac
   # git {
 #    repo https://github.com/yitzhakbg/levpoem.git
     # path ../../src/levpoem # relative to root. In actuality, /var/www/src/levpoem
@@ -12,10 +12,11 @@ http://levplocal.co.il, https://levplocal.co.il, www.levplocal.co.il {
     # then_long runhugo
   # }
 }
-# http://heartbt.co.il, https://heartbt.co.il, www.heartbt.co.il {
-http://heartblocal.co.il, https://heartblocal.co.il, www.heartblocal.co.il {
+http://heartbt.co.il, https://heartbt.co.il, http://www.heartbt.co.il, https://www.heartbt.co.il {
+# http://heartblocal.co.il, https://heartblocal.co.il, www.heartblocal.co.il {
   root /var/www/srv/heartbt
-  tls off
-  startup startsite heartbt http://heartblocal.co.il & # use on Mac
-#  startup startsite heartbt & # Use on DO server
+#  tls off
+  tls /etc/letsencrypt/live/heartbt.co.il/fullchain.pem /etc/letsencrypt/live/heartbt.co.il/privkey.pem
+#   startup startsite heartbt http://heartblocal.co.il & # use on Mac
+  startup startsite heartbt & # Use on DO server
 }
