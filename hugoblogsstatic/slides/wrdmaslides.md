@@ -87,7 +87,7 @@ name: Platform
 --
 count: false
 
-### .left[Each wave is on an exponentially more pervasive computing&nbsp;platform]
+### .left[Each wave is a vastly more pervasive computing&nbsp;platform]
 --
 count: false
 
@@ -96,7 +96,7 @@ count: false
 name: Bubbles
 class: center
 # Concentric Technology Bubbles <br/> Each wave envelopes its predecessors
-![:scale 85%](/images/bubbles_in_bubbles.jpg)
+![:scale 75%](/images/bubbles_in_bubbles.jpg)
 ---
 background-image: url(/images/ViewItFromOutside.png)
 name: ViewFromOutside
@@ -104,10 +104,10 @@ class: center
 ---
 count: false
 class: left, top
-# Heard of quest for</br>the Future Internet Architecture?
+## Heard of quest for</br>the Future Internet Architecture?
 --
 count: false
-# __the__?? .smaller[Future Internet Architecture]</br>What? Only one?
+## __the__?? .smaller[Future Internet Architecture]</br>What? Only one?
 --
 count: false
 
@@ -118,8 +118,11 @@ count: false
 ## Why can't networks be programmed?
 ---
 
+<!-- <div class="embed video-player">
+<iframe width="800" height="475" src="https://www.youtube.com/v/J9t_Vt2jJLI?list=PL1ACKARftyBC3Aun18Mj_9lz5h0K1vHiQ&start=0&rel=0&autoplay=1&controls=1&fs=1&loop=0&vq=hd720&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+</div> -->
 <div class="embed video-player">
-<iframe width="800" height="600" src="https://www.youtube.com/v/J9t_Vt2jJLI?list=PL1ACKARftyBC3Aun18Mj_9lz5h0K1vHiQ&start=0&rel=0&autoplay=1&controls=1&fs=1&loop=0&vq=hd720&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="800" height="475" src="https://www.youtube.com/v/J9t_Vt2jJLI?list=PL1ACKARftyBC3Aun18Mj_9lz5h0K1vHiQ&start=0&rel=0&controls=1&fs=1&loop=0&vq=hd720" frameborder="0" allowfullscreen></iframe>
 </div>
 ---
 
@@ -170,12 +173,12 @@ The widely used RDMA clustering model with verbs programming has been a standard
 # **Easy to grasp model**...
 ---
 name: EasyToGrasp1
-# 1. Take an HPC Computing center.
+# Take an HPC Computing center.
 .center[![:scale 98%](/images/hpc-solution-diagram_sm.jpg)]
 ---
 name: EasyToGrasp2
 count: false
-# 2. Replace the wire links with wireless
+# and replace the wire links with wireless
 .center[![:scale 96%](/images/hpc-diagram_wireless.png)]
 ---
 name: 4thGen
