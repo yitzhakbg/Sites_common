@@ -13,6 +13,8 @@ RUN apk add --update wget ca-certificates bash git rsync sudo && \
   mv hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 /usr/bin/hugo && \
   rm -r hugo_${HUGO_VERSION}_linux_amd64 && \
   curl https://getcaddy.com | bash -s git,search && \
+# Move Caddy into /usr/bin before it gets clobbered by mapping utils onto /usr/local/bin
+  mv /usr/local/bin/caddy /usr/bin && \
   wget http://nl.alpinelinux.org/alpine/edge/testing/x86_64/entr-3.3-r0.apk && apk add --allow-untrusted entr-3.3-r0.apk && \
   rm -fr entr-3.3-r0.apk && \
 #  mkdir -p /var/www/levpoem/src /var/www/levpoem/srv /var/www/levpoem/static /var/www/levpoem/themes /usr/local/bin /tmp/hpublic /tmp/epublic
@@ -35,7 +37,7 @@ EXPOSE 80 443 2015
 # WORKDIR /
 # COPY letsencrypt /etc/letsencrypt
 # COPY /etc/letsencrypt/live/heartbt.co.il/privkey.pem /etc/letsencrypt/live/heartbt.co.il/privkey.pem
-ENTRYPOINT ["/usr/local/bin/caddy"]
+ENTRYPOINT ["/usr/bin/caddy"]
 # ENTRYPOINT ["/bin/sleep"]
 # CMD ["40000"]
 #
