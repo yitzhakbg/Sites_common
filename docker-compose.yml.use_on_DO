@@ -23,7 +23,7 @@ services:
 #
       - "./utils:/usr/local/bin:rw"
     environment:
-      - "$HOME=/root"
+      - "HOME=/root"
       - "HUGO_SITE1=levpoem"
       - "HUGO_SITE2=heartbt"
       - "HUGO_THEME=redlounge"
