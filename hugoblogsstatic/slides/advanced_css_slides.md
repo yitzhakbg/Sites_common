@@ -1,6 +1,6 @@
 layout: true
 class: left, top, theYellowBackground
-.tohome[[![:scale 30%](/images/home-icon.png "home")](http://levpoem.co.il)]
+.tohome[[![:scale 30%](/images/home-icon.png "home")](../..)]
 ---
 class: center, middle, inverse
 
