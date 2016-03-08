@@ -5,3 +5,4 @@ multilingual.sublime-workspace
 docker-compose.yml
 Caddyfile
 docker-caddy/Dockerfile
+caddylog/**
