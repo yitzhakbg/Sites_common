@@ -22,8 +22,8 @@ RUN apk add --update wget ca-certificates bash git rsync sudo && \
   rm /var/cache/apk/* && \
 # For server operation, pull sources from git repositories.
 # (see docker-compose.yml)
-  git clone --depth=5 https://github.com/yitzhakbg/heartbt /var/www/src/heartbt && \
-  git clone --depth=5 https://github.com/yitzhakbg/levpoem /var/www/src/levpoem && \
+#  git clone --depth=5 https://github.com/yitzhakbg/heartbt /var/www/src/heartbt && \
+#  git clone --depth=5 https://github.com/yitzhakbg/levpoem /var/www/src/levpoem && \
   mkdir -p /tmp/epublic /tmp/hpublic /var/www/srv/heartbt /var/www/srv/levpoem  #/var/www/src
 # For local, comment out the two above lines and map the sources
 # (see docker-compose.yml)

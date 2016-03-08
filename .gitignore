@@ -3,4 +3,5 @@
 multilingual.sublime-workspace
 .DS_Store
 docker-compose.yml
-docker-caddy/Caddyfile
+Caddyfile
+docker-caddy/Dockerfile
