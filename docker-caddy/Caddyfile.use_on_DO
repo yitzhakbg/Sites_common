@@ -2,13 +2,13 @@ http://levplocal.co.il, http://levpoem.co.il, https://levpoem.co.il, http://www.
    root /var/www/srv/levpoem
 #  tls off # Use on Mac
    tls /etc/letsencrypt/live/levpoem.co.il/fullchain.pem /etc/letsencrypt/live/levpoem.co.il/privkey.pem
-   startup startsite levpoem https://levpoem.co.il & # Use on DO server
-# startup startsite levpoem http://levplocal.co.il & # Use on Mac
+   startup runhugo levpoem https://levpoem.co.il & # Use on DO server
+# startup runhugo levpoem http://levplocal.co.il & # Use on Mac
 }
 http://heartblocal.co.il, http://heartbt.co.il, https://heartbt.co.il, http://www.heartbt.co.il, https://www.heartbt.co.il {
   root /var/www/srv/heartbt
 #  tls off # Use on Mac
   tls /etc/letsencrypt/live/heartbt.co.il/fullchain.pem /etc/letsencrypt/live/heartbt.co.il/privkey.pem
-# startup startsite heartbt http://heartblocal.co.il & # use on Mac
-  startup startsite heartbt https://heartbt.co.il & # Use on DO server
+# startup runhugo heartbt http://heartblocal.co.il & # use on Mac
+  startup runhugo heartbt https://heartbt.co.il & # Use on DO server
 }

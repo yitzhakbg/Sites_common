@@ -1,35 +1,24 @@
 #!/bin/bash
 # set -x
+#
 # If BaseUrl isn't given explicitly as the second parameter, it will be made by default from the 1st parameter
 [ $# -eq 0 ] && { echo "Usage: $0 destination not given"; exit 1; }
 [ $# -eq 1 ] && { echo "Usage: $0 BaseURL not given. Using default"; HUGO_BASEURL=https://www.$1.co.il; }
 [ $# -eq 2 ] && { echo "Usage: $0 BaseURL is $2"; HUGO_BASEURL=$2; }
+[ ! -d /var/www/src/$1 ] && { echo "no source dir"; exit 1; }
+cd /var/www/src/$1
 HUGO_DEST=/var/www/srv/$1
-# HUGO_BASEURL=http://$BASH_ARGV.co.il
 WATCH="${HUGO_WATCH:=false}"
 SLEEP="${HUGO_REFRESH_TIME:=-1}"
-# echo "HUGO_WATCH:" $WATCH
-# echo "HUGO_REFRESH_TIME:" $HUGO_REFRESH_TIME
-# echo "HUGO_THEME:" $HUGO_THEME
 echo "HUGO_BASEURL" $HUGO_BASEURL
 echo "HUGO_DEST" $HUGO_DEST
-# echo "HUGO_STATIC" $HUGO_STATIC
-# echo "1st language is " $l1
-# echo "2nd language is " $l2
 
 HUGO=/usr/local/bin/hugo
 # This is a (temporary) hack until v0.16 when TemplatesDir will be recognized
 cp -a /var/www/src/themes .
 #
-# Start clean on every run:
-# rm -rf $HUGO_DEST/* /tmp/*
+# If no laoguages given, do a plain vanilla Hugo build
 #
-# sleep 10 # Give caddy time to clone levpoem.git
-# Note: This doesn't work on Mac. Apparently entr monitors the file system in the VM in which Docker is running which is
-# not the same as the host OS file system. We found that updating a file on the Mac does not trigger fmks while updating
-# the same file inside the running Docker container does trigger even though it is the same file. This means that docker-
-# compose has to be restarted manually on the Mac. This isn't a problem on Linux since Docker doesn't run in a VM.
-
 if [[ ! ${l1+x} ]] && [[ ! ${l2+x} ]]; then
   while [ true ]
   do
@@ -42,8 +31,8 @@ if [[ ! ${l1+x} ]] && [[ ! ${l2+x} ]]; then
 fi
 
 # Must specify two languages.
-[[ ! ${l1+x} ]] && [[ ${l2+x} ]] && { echo "Sorry. Only one language given"; exit 1; }
-[[ ${l1+x} ]] && [[ ! ${l2+x} ]] && { echo "Sorry. Only one language given"; exit 1; }
+# [[ ! ${l1+x} ]] || ! [[ ${l2+x} ]] && { echo "Sorry. Only one language given"; exit 1; }
+[[ ! (${l1+x} && ${l2+x}) ]] && { echo "Sorry. Only one language given"; exit 1; }
 
 # We don't want a content directory. hcontent and econtent will each become content in turn
 if [ -d content ]; then
@@ -52,12 +41,8 @@ fi
 
 while [ true ]
 do
-#
-#    find config{$l1,$l2}.toml {$l1,$l2}content layouts ../static ../themes | entr -r fmks $HUGO_DEST $HUGO_BASEURL $1
-#    find confige.toml configh.toml econtent hcontent layouts ../static ../themes $HUGO_DEST | entr -r fmks $HUGO_DEST $HUGO_BASEURL $1
     find confige.toml configh.toml econtent hcontent layouts ../static ../themes | entr -r fmks $HUGO_DEST $HUGO_BASEURL $1
     echo "Sleeping for $HUGO_REFRESH_TIME seconds..."
     sleep $SLEEP
-# echo "222"
 done
 
