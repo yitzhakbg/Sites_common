@@ -27,7 +27,7 @@ EXPOSE 80 443 2015
 # For local operation, comment out the git clone lines and map the sources
 # (see docker-compose.yml)
 # RUN git clone --depth=5 https://github.com/yitzhakbg/levpoem /var/www/src/levpoem && sleep 5 && \
-git clone --depth=5 https://github.com/yitzhakbg/heartbt /var/www/src/heartbt
+# git clone --depth=5 https://github.com/yitzhakbg/heartbt /var/www/src/heartbt
 
 ENTRYPOINT ["/usr/bin/caddy"]
 #
