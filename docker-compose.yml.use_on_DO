@@ -11,8 +11,8 @@ services:
       - "~/.caddy:$HOME/.caddy:rw"
       - "./Caddyfile:/etc/caddy/Caddyfile"
       - "/etc/letsencrypt:/etc/letsencrypt"
-      - "./hugoblogsstatic:/var/www/src/static"
-      - "./hugoblogsthemes:/var/www/src/themes"
+      - ".:/var/www/src"
+
 #
 # For local operation, map sources directly.
 # (see docker-caddy/Dockerfile)

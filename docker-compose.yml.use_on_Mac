@@ -1,4 +1,4 @@
-version: "2"
+version: 2
 services:
   caddy:
     container_name: caddy4hugo
@@ -10,8 +10,9 @@ services:
       - "./caddylog:/var/log"
       - "~/.caddy:$HOME/.caddy:rw"
       - "./Caddyfile:/etc/caddy/Caddyfile"
-      - "./hugoblogsstatic:/var/www/src/static"
-      - "./hugoblogsthemes:/var/www/src/themes"
+      - "/etc/letsencrypt:/etc/letsencrypt"
+      - ".:/var/www/src"
+
 #
 # For local operation, map sources directly.
 # (see docker-caddy/Dockerfile)
