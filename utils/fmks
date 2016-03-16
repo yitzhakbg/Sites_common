@@ -24,7 +24,7 @@ hugo --config="${l1config}" -d ${l1targ} -t $HUGO_THEME -b $2 # Make Hebrew site
 # Change the string "index.xml" appearing in all the files named index.* to "hindex.xml"
 dir=${l1targ}
 find $dir -type f -name 'index.*' -exec sed -i "s/index.xml/${l1index}.xml/" {} +
-# Rename all the files named index.xml hindex.*
+# Rename all the files named index.xml hindex.html
 for file in $(find $dir -type f -name index.xml); do
     mv $file $(dirname "${file}")/${l1index}.xml
 done
@@ -32,7 +32,7 @@ mv $dir/{,${l1}}index.html # Rename top level index.html to hindex.html
 # echo "444 $3"
 hugo --config="${l2config}" -d ${l2targ} -t $HUGO_THEME -b $2 # Make English site in epublic
 # echo "555 $3"
-# Make eindex copies of index.html and index.html
+# Make eindex copies of top level index.html and index.html
 cp ${l2targ}/{,${l2}}index.html && cp ${l2targ}/{,${l2}}index.xml
 # Merge hpublic and epublic into target
 # First English
