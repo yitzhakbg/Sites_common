@@ -1,3 +1,4 @@
 #!/bin/bash
 [ -d /var/www/src/levpoem ] && cd /var/www/src/levpoem && git pull --depth=5
 [ -d /var/www/src/heartbt ] && cd /var/www/src/heartbt && git pull --depth=5
+cd /var/www/src && git pull --depth=5
