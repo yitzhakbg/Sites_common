@@ -313,7 +313,15 @@ a.post-category:hover {
 	overflow: hidden;
 }
 .content-banner-image-inline {
-	float: right;
+  float: right;
+  margin: 0.5rem 0 1.5rem 2rem;
+}
+.content-image-inline {
+  clear: center;
+  margin: 0.5rem 0 1.5rem 2rem;
+}
+.remarkjs {
+	clear: center;
 	margin: 0.5rem 0 1.5rem 2rem;
 }
 
