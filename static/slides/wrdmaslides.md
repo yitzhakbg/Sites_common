@@ -69,7 +69,7 @@ count: false
   ## Mobile
 ]
 .right-column[
-	![:scale 100%](/images/Growth-Global-Mobile-Internet-Google-ex1_inline_tcm80-181547.png))
+	![:scale 100%](/images/Growth-Global-Mobile-Internet-Google-ex1_inline_tcm80-181547.png)
 ]
 ---
 name: Waves of Disruptions
@@ -118,11 +118,8 @@ count: false
 ## Why can't networks be programmed?
 ---
 
-<!-- <div class="embed video-player">
-<iframe width="800" height="475" src="https://www.youtube.com/v/J9t_Vt2jJLI?list=PL1ACKARftyBC3Aun18Mj_9lz5h0K1vHiQ&start=0&rel=0&autoplay=1&controls=1&fs=1&loop=0&vq=hd720&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
-</div> -->
 <div class="embed video-player">
-<iframe width="800" height="475" src="https://www.youtube.com/v/J9t_Vt2jJLI?list=PL1ACKARftyBC3Aun18Mj_9lz5h0K1vHiQ&start=0&rel=0&controls=1&fs=1&loop=0&vq=hd720" frameborder="0" allowfullscreen></iframe>
+<iframe width="800" height="475" src="https://www.youtube.com/embed/J9t_Vt2jJLI?list=PL1ACKARftyBC3Aun18Mj_9lz5h0K1vHiQ&start=0&rel=0&controls=1&fs=1&loop=0&vq=hd720&autoplay=1" frameborder="0" allowfullscreen></iframe>
 </div>
 ---
 
@@ -178,8 +175,13 @@ name: EasyToGrasp1
 ---
 name: EasyToGrasp2
 count: false
-# and replace the wire links with wireless
+# replace the wire links with wireless
 .center[![:scale 96%](/images/hpc-diagram_wireless.png)]
+---
+name: EasyToGrasp3
+count: false
+# replace the compute nodes with wireless devices
+.center[![:scale 96%](/images/hpc-diagram_mobile.png)]
 ---
 name: 4thGen
 class: top, center, theWhiteBackground
