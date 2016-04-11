@@ -30,7 +30,7 @@ count: false
 
 # .left-column[This is a rerun.]
 <div class="embed video-player">
-<iframe width="560" height="315" src="https://www.youtube.com/v/n1mpgOQmFCA?list=PL1ACKARftyBDLK67SIj6cba5uk24fE-ff&rel=0&autoplay=1&controls=0&fs=0&loop=1&modestbranding=1&showinfo=0" frameborder="0"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/n1mpgOQmFCA?list=PL1ACKARftyBDLK67SIj6cba5uk24fE-ff&rel=0&autoplay=1&controls=0&fs=0&loop=1&modestbranding=1&showinfo=0" frameborder="0"></iframe>
 </div>
 
 # .center[We've been there before]
