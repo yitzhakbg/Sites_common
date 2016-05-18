@@ -141,6 +141,14 @@ class: left, top
 ]
 ---
 
+# Serverless Computing
+- [Pushes computing into local devices](http://www.networkworld.com/article/3033467/cloud-computing/serverless-computing-mapping-out-the-possibilities-part-2.html)
+- Dependency on network providers heavier than ever
+- But distributed apps generate ever more traffic
+  - How much of that local traffic could be reduced?
+
+---
+
 ## High Protocol Wall (networking today)
 
 ![:scale 100%](/images/TCPIPStackHiWall1.png)
