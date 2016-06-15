@@ -14,10 +14,10 @@ echo "HUGO_BASEURL" $HUGO_BASEURL
 echo "HUGO_DEST" $HUGO_DEST
 
 HUGO=/usr/local/bin/hugo
-# This is a (temporary) hack until v0.16 when TemplatesDir will be recognized
-cp -a /var/www/src/themes .
+# Uncomment the following line for versions prior to v0.16 when TemplatesDir was not recognized
+# cp -a /var/www/src/themes .
 #
-# If no laoguages given, do a plain vanilla Hugo build
+# If no languages given, do a plain vanilla Hugo build
 #
 if [[ ! ${l1+x} ]] && [[ ! ${l2+x} ]]; then
   while [ true ]
