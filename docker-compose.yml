@@ -1,4 +1,4 @@
-version: "2"
+version: 2
 services:
   caddy:
     container_name: caddy4hugo
@@ -8,17 +8,17 @@ services:
   #    - "heartbt"
     volumes:
       - "./caddylog:/var/log"
-      - "~/.caddy:$HOME/.caddy:rw"
+      - "~/.caddy:/root/.caddy:rw"
       - "./Caddyfile:/etc/caddy/Caddyfile"
 # Comment out letsencrypt mapping on local. Active only on server
-#      - "/etc/letsencrypt:/etc/letsencrypt"
+      - "/etc/letsencrypt:/etc/letsencrypt"
       - ".:/var/www/src"
 
 #
 # For local operation, map sources directly.
 # (see docker-caddy/Dockerfile)
-      - "../levpoem:/var/www/src/levpoem"
-      - "../heartbt:/var/www/src/heartbt"
+#      - "../levpoem:/var/www/src/levpoem"
+#      - "../heartbt:/var/www/src/heartbt"
 # On the server, comment out the two above lines and pull the sources in with git.
 # (see docker-caddy/Dockerfile)
 #
