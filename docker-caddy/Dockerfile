@@ -3,7 +3,7 @@ MAINTAINER Yitzhak Bar Geva <yitzhakbargeva@gmail.com>
 
 ENV CADDY_VERSION=0.8.3
 ENV HUGO_VERSION=0.16
-RUN apk add --update wget ca-certificates bash git rsync sudo && \
+RUN apk add --update wget curl ca-certificates bash git rsync sudo && \
 #
   wget --no-check-certificate https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-64bit.tgz -O - | tar zx && \
   mv hugo /usr/bin && \
@@ -18,7 +18,7 @@ RUN apk add --update wget ca-certificates bash git rsync sudo && \
 #
 EXPOSE 80 443 2015
 # For server operation, pull sources from git repositories.
-# For local operation, the git clones are ignored. You can comment out the git clone lines.The sources are mapped to local
+# For local operation, the git clones are ignored. You can optionally comment out the git clone lines since the sources are mapped to local
 # (see docker-compose.yml)
 RUN git clone --depth=5 https://github.com/yitzhakbg/levpoem /var/www/src/levpoem && sleep 5 && \
 git clone --depth=5 https://github.com/yitzhakbg/heartbt /var/www/src/heartbt
