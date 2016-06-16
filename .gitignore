@@ -2,9 +2,7 @@
 *.sublime-workspace
 multilingual.sublime-workspace
 .DS_Store
-docker-compose.yml
 Caddyfile
-docker-caddy/Dockerfile
 caddylog/**
 heartbt/**
 levpoem/**
