@@ -1,0 +1,3 @@
+# Sites_common
+Multi-language, multi-blog [Hugo](https://gohugo.io/) build system with non-polling watcher.
+Highly efficient Alpine Linux Docker containers, static assets served from Cloudflare, themes...
