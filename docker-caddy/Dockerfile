@@ -1,7 +1,7 @@
 FROM gliderlabs/alpine:latest
 MAINTAINER Yitzhak Bar Geva <yitzhakbargeva@gmail.com>
 
-ENV CADDY_VERSION=0.8.3
+ENV CADDY_VERSION=0.9
 ENV HUGO_VERSION=0.16
 RUN apk add --update wget curl ca-certificates bash git rsync sudo && \
 #
