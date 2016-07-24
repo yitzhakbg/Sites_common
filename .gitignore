@@ -2,7 +2,6 @@
 *.sublime-workspace
 multilingual.sublime-workspace
 .DS_Store
-Caddyfile
 caddylog/**
 heartbt/**
 levpoem/**
