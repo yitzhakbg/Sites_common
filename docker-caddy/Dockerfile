@@ -10,8 +10,8 @@ RUN apk add --update wget curl ca-certificates bash git rsync sudo && \
   curl https://getcaddy.com | bash -s git,search && \
 # Move Caddy into /usr/bin before it gets clobbered by mapping utils onto /usr/local/bin
   mv /usr/local/bin/caddy /usr/bin && \
-  wget http://nl.alpinelinux.org/alpine/edge/testing/x86_64/entr-3.3-r0.apk && apk add --allow-untrusted entr-3.3-r0.apk && \
-  rm -fr entr-3.3-r0.apk && \
+#  wget http://nl.alpinelinux.org/alpine/edge/testing/x86_64/entr-3.3-r0.apk && apk add --allow-untrusted entr-3.3-r0.apk && \
+#  rm -fr entr-3.3-r0.apk && \
   apk del wget ca-certificates && \
   rm /var/cache/apk/* && \
   mkdir -p /tmp/epublic /tmp/hpublic /var/www/srv/heartbt /var/www/srv/levpoem
