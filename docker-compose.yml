@@ -10,8 +10,6 @@ services:
       - "./caddylog:/var/log"
       - "~/.caddy:/root/.caddy:rw"
       - "./Caddyfile:/etc/caddy/Caddyfile"
-# Comment out letsencrypt mapping on local. Active only on server
-      - "/etc/letsencrypt:/etc/letsencrypt"
       - ".:/var/www/src"
 
 #
