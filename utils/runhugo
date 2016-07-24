@@ -14,12 +14,10 @@ echo "HUGO_BASEURL" $HUGO_BASEURL
 echo "HUGO_DEST" $HUGO_DEST
 
 HUGO=/usr/local/bin/hugo
-# Uncomment the following line for versions prior to v0.16 when TemplatesDir was not recognized
-# cp -a /var/www/src/themes .
 #
 # If no languages given, do a plain vanilla Hugo build
 #
-if [[ ! ${l1+x} ]] && [[ ! ${l2+x} ]]; then
+if [[ ! ${l1+x} ]]; then
   while [ true ]
   do
     echo "no languages specified"
@@ -30,18 +28,12 @@ if [[ ! ${l1+x} ]] && [[ ! ${l2+x} ]]; then
   done
 fi
 
-# Must specify two languages.
-# [[ ! ${l1+x} ]] || ! [[ ${l2+x} ]] && { echo "Sorry. Only one language given"; exit 1; }
-[[ ! (${l1+x} && ${l2+x}) ]] && { echo "Sorry. Only one language given"; exit 1; }
-
-# We don't want a content directory. hcontent and econtent will each become content in turn
-if [ -d content ]; then
-  rm -rf content
-fi
+# Must specify at least one non-default language.
+[[ ! ${l1+x} ]] && { echo "Sorry. No non-default language given"; exit 1; }
 
 while [ true ]
 do
-    find confige.toml configh.toml econtent hcontent layouts ../static ../themes | entr -r fmks $HUGO_DEST $HUGO_BASEURL $1
+    find config.toml configh.toml content hcontent layouts hlayouts ../static ../themes | entr -r fmks $HUGO_DEST $HUGO_BASEURL $1
     echo "Sleeping for $HUGO_REFRESH_TIME seconds..."
     sleep $SLEEP
 done

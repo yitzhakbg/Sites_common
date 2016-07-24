@@ -1,11 +1,8 @@
-version: 2
+version: "2"
 services:
   caddy:
     container_name: caddy4hugo
     build: "docker-caddy"
-  #  volumes_from:
-  #    - "levpoem"
-  #    - "heartbt"
     volumes:
       - "./caddylog:/var/log"
       - "~/.caddy:/root/.caddy:rw"
@@ -15,8 +12,8 @@ services:
 #
 # For local operation, map sources directly.
 # (see docker-caddy/Dockerfile)
-#      - "../levpoem:/var/www/src/levpoem"
-#      - "../heartbt:/var/www/src/heartbt"
+      - "../levpoem:/var/www/src/levpoem"
+      - "../heartbt:/var/www/src/heartbt"
 # On the server, comment out the two above lines and pull the sources in with git.
 # (see docker-caddy/Dockerfile)
 #
