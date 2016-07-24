@@ -1,0 +1,26 @@
+##################################################################################
+# Use this section on production server
+##################################################################################
+levpoem.co.il, www.levpoem.co.il {
+   root /var/www/srv/levpoem
+   startup runhugo levpoem https://levpoem.co.il & # Use on DO server
+}
+heartbt.co.il, www.heartbt.co.il {
+  root /var/www/srv/heartbt
+  startup runhugo heartbt https://heartbt.co.il & # Use on DO server
+}
+
+##################################################################################
+# Use this section for local development (will be asked to accept locally generated certificate)
+##################################################################################
+# https://levplocal.co.il {
+#   root /var/www/srv/levpoem
+#   tls self_signed # Use on Mac
+#   startup runhugo levpoem https://levplocal.co.il & # Use on Mac
+# }
+# https://heartblocal.co.il {
+#   root /var/www/srv/heartbt
+#   tls self_signed # Use on Mac
+#   startup runhugo heartbt https://heartblocal.co.il & # use on Mac
+# }
+
