@@ -18,9 +18,9 @@ hugo --config="${l1config}" -d ${l1targ} -t $HUGO_THEME -b $2 # Make Hebrew site
 
 # Change the string "index.xml" appearing in all the files named index.* to "hindex.xml"
 dir=${l1targ}
-find $dir -type f -name 'index.*' -exec sed -i "s/index.xml/${l1index}.xml/" {} +
+find $dir -name js -name css -name docs -name images -name slides -prune -o -type f -name 'index.*' -exec sed -i "s/index.xml/${l1index}.xml/" {} +
 # Rename all the files named index.xml hindex.html
-for file in $(find $dir -type f -name index.xml); do
+for file in $(find $dir -name js -name css -name docs -name slides -prune -o -type f -name index.xml); do
     mv $file $(dirname "${file}")/${l1index}.xml
 done
 mv $dir/{,${l1}}index.html # Rename top level index.html to hindex.html
