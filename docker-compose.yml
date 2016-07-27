@@ -26,8 +26,8 @@ services:
       - "HUGO_WATCH=1"
       - "HUGO_REFRESH_TIME=5"
       - "SLEEP=15"
-      - "l1=h" # First language is Hebrew
-      - "l2=e" # Second language is English
+      - "lang1=h" # First non-default language is Hebrew. Default language is English
+      #
     ports:
       - "80:80"
       - "443:443"

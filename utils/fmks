@@ -4,26 +4,25 @@
 # Script to generate Hebrew site, rename index.xml files and their references to hindex.xml,
 # rename top index.html to hindex.html then merge all into the English site.
 # Result is to have both English and Hebrew cooexisting in the same serving branch
-#
 
-targ=$1
-l1targ=/tmp/${l1}/$3/public
-l1content=${l1}content
-l1index=${l1}index
-l1config=config${l1}.toml
+dest=$1
+baseurl=$2
+lang1dest=/tmp/${lang1}/$3/public
+lang1content=${lang1}content
+lang1index=${lang1}index
+lang1config=config${lang1}.toml
 
-[[ ! -d ${l1content} ]] && { echo "${l1content} directory missing"; exit 1; }
+[[ ! -d ${lang1content} ]] && { echo "${lang1content} directory missing"; exit 1; }
 # Hebrew (first language) section
-hugo --config="${l1config}" -d ${l1targ} -t $HUGO_THEME -b $2 # Make Hebrew site in hpublic
+hugo --config="${lang1config}" -d ${lang1dest} -t $HUGO_THEME -b $baseurl # Make Hebrew site in hpublic
 
 # Change the string "index.xml" appearing in all the files named index.* to "hindex.xml"
-dir=${l1targ}
-find $dir -name js -name css -name docs -name images -name slides -prune -o -type f -name 'index.*' -exec sed -i "s/index.xml/${l1index}.xml/" {} +
+find $lang1dest -name js -name css -name docs -name images -name slides -prune -o -type f -name 'index.*' -exec sed -i "s/index.xml/${lang1index}.xml/" {} +
 # Rename all the files named index.xml hindex.html
-for file in $(find $dir -name js -name css -name docs -name slides -prune -o -type f -name index.xml); do
-    mv $file $(dirname "${file}")/${l1index}.xml
+for file in $(find $lang1dest -name js -name css -name docs -name slides -prune -o -type f -name index.xml); do
+    mv $file $(dirname "${file}")/${lang1index}.xml
 done
-mv $dir/{,${l1}}index.html # Rename top level index.html to hindex.html
-hugo -d $targ -t $HUGO_THEME -b $2 # Make default (English) site in public
+mv $dir/{,${lang1}}index.html # Rename top level index.html to hindex.html
+hugo -d $dest -t $HUGO_THEME -b $baseurl # Make default (English) site in public
 # Merge 1st non-default language into default (English) destination
-rsync -a --exclude={/images/,/css/,/js/,/data/,/docs/,/slides/} ${l1targ}/ $targ
+rsync -a --exclude={/images/,/css/,/js/,/data/,/docs/,/slides/} ${lang1dest}/ $dest
