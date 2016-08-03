@@ -1,20 +1,20 @@
 ##################################################################################
 # Use this section on production server
 ##################################################################################
-https://levpoem.co.il {
+https://levpoem.co.il, http://levpoem.co.il, http://www.levpoem.co.il, https://www.levpoem.co.il {
    root /var/www/srv/levpoem
    startup runhugo levpoem https://levpoem.co.il & # Use on DO server
 }
-http://levpoem.co.il, http://www.levpoem.co.il, https://www.levpoem.co.il {
-   redir https://levpoem.co.il{uri}
-}
-https://heartbt.co.il {
+# http://levpoem.co.il, http://www.levpoem.co.il, https://www.levpoem.co.il {
+#    redir https://levpoem.co.il{uri}
+# }
+https://heartbt.co.il, http://heartbt.co.il, http://www.heartbt.co.il, https://www.heartbt.co.il {
   root /var/www/srv/heartbt
   startup runhugo heartbt https://heartbt.co.il & # Use on DO server
 }
-http://heartbt.co.il, http://www.heartbt.co.il, https://www.heartbt.co.il {
-   redir https://heartbt.co.il{uri}
-}
+# http://heartbt.co.il, http://www.heartbt.co.il, https://www.heartbt.co.il {
+#   redir https://heartbt.co.il{uri}
+# }
 
 ##################################################################################
 # Use this section for local development (will be asked to accept locally generated certificate)
