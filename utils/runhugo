@@ -17,7 +17,7 @@ HUGO=/usr/local/bin/hugo
 #
 # If no languages given, do a plain vanilla Hugo build
 #
-if [[ ! ${l1+x} ]]; then
+if [[ ! ${lang1+x} ]]; then
   while [ true ]
   do
     echo "no languages specified"
@@ -29,7 +29,7 @@ if [[ ! ${l1+x} ]]; then
 fi
 
 # Must specify at least one non-default language.
-[[ ! ${l1+x} ]] && { echo "Sorry. No non-default language given"; exit 1; }
+[[ ! ${lang1+x} ]] && { echo "Sorry. No non-default language given"; exit 1; }
 
 while [ true ]
 do

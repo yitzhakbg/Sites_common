@@ -22,7 +22,7 @@ find $lang1dest -name js -name css -name docs -name images -name slides -prune -
 for file in $(find $lang1dest -name js -name css -name docs -name slides -prune -o -type f -name index.xml); do
     mv $file $(dirname "${file}")/${lang1index}.xml
 done
-mv $dir/{,${lang1}}index.html # Rename top level index.html to hindex.html
+mv $lang1dest/{,${lang1}}index.html # Rename top level index.html to hindex.html
 hugo -d $dest -t $HUGO_THEME -b $baseurl # Make default (English) site in public
 # Merge 1st non-default language into default (English) destination
 rsync -a --exclude={/images/,/css/,/js/,/data/,/docs/,/slides/} ${lang1dest}/ $dest
