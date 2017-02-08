@@ -2,7 +2,9 @@ version: "2"
 services:
   caddy:
     container_name: caddy4hugo
-    build: "docker-caddy"
+    build:
+      context: "docker-caddy"
+      dockerfile: HostedDockerfile
     volumes:
       - "./caddylog:/var/log"
       - "~/.caddy:/root/.caddy:rw"

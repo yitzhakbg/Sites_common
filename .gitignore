@@ -1,6 +1,7 @@
 *.log
 *.sublime-workspace
 multilingual.sublime-workspace
+docker-compose.yml # This might be a link to either Localdocker-compose.yml or Hosteddocker-compose.yml
 .DS_Store
 caddylog/**
 heartbt/**
