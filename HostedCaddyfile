@@ -1,0 +1,11 @@
+##################################################################################
+# Use this Caddyfile on production server
+##################################################################################
+https://levpoem.co.il, http://levpoem.co.il, http://www.levpoem.co.il, https://www.levpoem.co.il {
+   root /var/www/srv/levpoem
+   startup runhugo levpoem https://levpoem.co.il & # Use on DO server
+}
+https://heartbt.co.il, http://heartbt.co.il, http://www.heartbt.co.il, https://www.heartbt.co.il {
+  root /var/www/srv/heartbt
+  startup runhugo heartbt https://heartbt.co.il & # Use on DO server
+}

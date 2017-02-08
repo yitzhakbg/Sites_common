@@ -1,0 +1,17 @@
+##################################################################################
+# Use this Caddyfile on local server
+# heartblocal.co.il, www.heartblocal.co.il, levplocal.co.il and www.levplocal.co.il
+# are local URLs, should be defined in /etc/hosts to match the Docker container's IP
+##################################################################################
+https://levplocal.co.il, http://levplocal.co.il, http://www.levplocal.co.il, https://www.levpblocal.co.il {
+  root /var/www/srv/levpoem
+  tls self_signed
+#  tls off
+  startup runhugo levpoem https://levplocal.co.il &
+}
+https://heartblocal.co.il, http://heartblocal.co.il, http://www.heartblocal.co.il, https://www.heartblocal.co.il {
+  root /var/www/srv/heartbt
+#   tls off
+  tls self_signed
+  startup runhugo heartbt https://heartblocal.co.il &
+}

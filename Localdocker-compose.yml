@@ -6,7 +6,7 @@ services:
     volumes:
       - "./caddylog:/var/log"
       - "~/.caddy:/root/.caddy:rw"
-      - "./Caddyfile:/etc/caddy/Caddyfile"
+      - "./LocalCaddyfile:/etc/caddy/Caddyfile"
       - ".:/var/www/src"
 
 #
