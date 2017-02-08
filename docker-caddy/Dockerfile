@@ -1,12 +1,12 @@
 FROM gliderlabs/alpine:latest
 MAINTAINER Yitzhak Bar Geva <yitzhakbargeva@gmail.com>
 
-ENV CADDY_VERSION=0.9
-ENV HUGO_VERSION=0.16
+ENV CADDY_VERSION=0.9.5
+ENV HUGO_VERSION=0.18
 RUN apk add --update wget curl ca-certificates bash git rsync sudo && \
 #
-  wget --no-check-certificate https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-64bit.tgz -O - | tar zx && \
-  mv hugo /usr/bin && \
+  wget --no-check-certificate https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -O - | tar zx && \
+  mv hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 /usr/bin/hugo && \
   curl https://getcaddy.com | bash -s git,search && \
 # Move Caddy into /usr/bin before it gets clobbered by mapping utils onto /usr/local/bin
   mv /usr/local/bin/caddy /usr/bin && \
