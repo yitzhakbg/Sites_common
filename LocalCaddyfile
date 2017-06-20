@@ -7,11 +7,11 @@ https://levplocal.co.il, http://levplocal.co.il, http://www.levplocal.co.il, htt
   root /var/www/srv/levpoem
   tls self_signed
 #  tls off
-  startup runhugo levpoem https://levplocal.co.il &
+  startup localrunhugo levpoem https://levplocal.co.il &
 }
 https://heartblocal.co.il, http://heartblocal.co.il, http://www.heartblocal.co.il, https://www.heartblocal.co.il {
   root /var/www/srv/heartbt
 #   tls off
   tls self_signed
-  startup runhugo heartbt https://heartblocal.co.il &
+  startup localrunhugo heartbt https://heartblocal.co.il &
 }

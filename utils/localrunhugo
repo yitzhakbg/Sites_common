@@ -1,9 +1,6 @@
 #!/bin/bash
 # set -x
 #
-rm -rf /var/www/src/{heartbt,levpoem}
-git clone --depth=5 https://github.com/yitzhakbg/levpoem /var/www/src/levpoem
-git clone --depth=5 https://github.com/yitzhakbg/heartbt /var/www/src/heartbt
 # If BaseUrl isn't given explicitly as the second parameter, it will be made by default from the 1st parameter
 [ $# -eq 0 ] && { echo "Usage: $0 destination not given"; exit 1; }
 [ $# -eq 1 ] && { echo "Usage: $0 BaseURL not given. Using default"; HUGO_BASEURL=https://www.$1.co.il; }
