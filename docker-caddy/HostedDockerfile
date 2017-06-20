@@ -19,8 +19,9 @@ EXPOSE 80 443 2015
 # For server operation, pull sources from git repositories.
 # For local operation, the git clones are ignored. You can optionally comment out the git clone lines since the sources are mapped to local
 # (see docker-compose.yml)
-RUN git clone --depth=5 https://github.com/yitzhakbg/levpoem /var/www/src/levpoem && sleep 5 && \
-git clone --depth=5 https://github.com/yitzhakbg/heartbt /var/www/src/heartbt
+# This was changed. It is now done in the runhugo utility
+# RUN git clone --depth=5 https://github.com/yitzhakbg/levpoem /var/www/src/levpoem && sleep 5 && \
+# git clone --depth=5 https://github.com/yitzhakbg/heartbt /var/www/src/heartbt
 ENTRYPOINT ["/usr/bin/caddy"]
 #
 # Staging directory is used during testing phase when there are frequent certificate requests
