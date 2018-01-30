@@ -6,10 +6,10 @@ services:
       context: "docker-caddy"
       dockerfile: HostedDockerfile
     volumes:
-      - "./caddylog:/var/log"
+      - "~/Sites/Sites_common/caddylog:/var/log:rw"
       - "~/.caddy:/root/.caddy:rw"
-      - "./HostedCaddyfile:/etc/caddy/Caddyfile"
-      - ".:/var/www/src"
+      - "~/Sites/Sites_common/HostedCaddyfile:/etc/caddy/Caddyfile"
+      - "~/Sites/Sites_common:/var/www/src:rw"
 
 #
 # For local operation, map sources directly.
@@ -19,7 +19,7 @@ services:
 # On the server, comment out the two above lines and pull the sources in with git.
 # (see docker-caddy/Dockerfile)
 #
-      - "./utils:/usr/local/bin:rw"
+      - "~/Sites/Sites_common/utils:/usr/local/bin:rw"
     environment:
       - "HOME=/root"
       - "HUGO_SITE1=levpoem"

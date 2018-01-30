@@ -1,27 +1,24 @@
 FROM gliderlabs/alpine:latest
 MAINTAINER Yitzhak Bar Geva <yitzhakbargeva@gmail.com>
 
-ENV CADDY_VERSION=0.10.4
-ENV HUGO_VERSION=0.25.1
+ENV CADDY_VERSION=0.10.10
+# ENV HUGO_VERSION=0.25.1
+ENV HUGO_VERSION=0.34
 RUN apk add --update wget curl ca-certificates bash git rsync sudo && \
 #
   wget --no-check-certificate https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -O - | tar zx && mv hugo /usr/bin && \
-  curl -fsSL https://getcaddy.com | bash -s http.git && \
+  curl -fsSL https://getcaddy.com | bash -s personal http.git && \
 # Move Caddy into /usr/bin before it gets clobbered by mapping utils onto /usr/local/bin
   mv /usr/local/bin/caddy /usr/bin && \
-#  wget http://nl.alpinelinux.org/alpine/edge/testing/x86_64/entr-3.3-r0.apk && apk add --allow-untrusted entr-3.3-r0.apk && \
-#  rm -fr entr-3.3-r0.apk && \
+  wget http://nl.alpinelinux.org/alpine/edge/community/x86_64/entr-3.9-r0.apk && apk add --allow-untrusted entr-3.9-r0.apk && \
+  rm -fr entr-3.9-r0.apk && \
   apk del wget ca-certificates && \
   rm /var/cache/apk/* && \
   mkdir -p /tmp/epublic /tmp/hpublic /var/www/srv/heartbt /var/www/srv/levpoem
 #
 EXPOSE 80 443 2015
 # For server operation, pull sources from git repositories.
-# For local operation, the git clones are ignored. You can optionally comment out the git clone lines since the sources are mapped to local
-# (see docker-compose.yml)
-# This was changed. It is now done in the runhugo utility
-# RUN git clone --depth=5 https://github.com/yitzhakbg/levpoem /var/www/src/levpoem && sleep 5 && \
-# git clone --depth=5 https://github.com/yitzhakbg/heartbt /var/www/src/heartbt
+# For local operation, the git clones are ignored. (see docker-compose.yml)
 ENTRYPOINT ["/usr/bin/caddy"]
 #
 # Staging directory is used during testing phase when there are frequent certificate requests

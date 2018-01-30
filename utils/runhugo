@@ -1,14 +1,14 @@
 #!/bin/bash
 # set -x
 #
-rm -rf /var/www/src/{heartbt,levpoem}
-git clone --depth=5 https://github.com/yitzhakbg/levpoem /var/www/src/levpoem
-git clone --depth=5 https://github.com/yitzhakbg/heartbt /var/www/src/heartbt
 # If BaseUrl isn't given explicitly as the second parameter, it will be made by default from the 1st parameter
 [ $# -eq 0 ] && { echo "Usage: $0 destination not given"; exit 1; }
 [ $# -eq 1 ] && { echo "Usage: $0 BaseURL not given. Using default"; HUGO_BASEURL=https://www.$1.co.il; }
 [ $# -eq 2 ] && { echo "Usage: $0 BaseURL is $2"; HUGO_BASEURL=$2; }
-[ ! -d /var/www/src/$1 ] && { echo "no source dir"; exit 1; }
+[ -d /var/www/src/$1 ] && { rm -rf /var/www/src/$1; }
+[ -d /var/www/src/$1 ] && { echo "didn\'t delete"; exit 1; }
+git clone --depth=5 https://github.com/yitzhakbg/$1 /var/www/src/$1
+sleep 5
 cd /var/www/src/$1
 HUGO_DEST=/var/www/srv/$1
 WATCH="${HUGO_WATCH:=false}"

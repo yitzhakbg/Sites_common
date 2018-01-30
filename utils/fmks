@@ -11,7 +11,7 @@ lang1dest=/tmp/${lang1}/$3/public
 lang1content=${lang1}content
 lang1index=${lang1}index
 lang1config=config${lang1}.toml
-
+echo "We\'re in fkms\n"
 [[ ! -d ${lang1content} ]] && { echo "${lang1content} directory missing"; exit 1; }
 # Hebrew (first language) section
 hugo --config="${lang1config}" -d ${lang1dest} -t $HUGO_THEME -b $baseurl # Make Hebrew site in hpublic

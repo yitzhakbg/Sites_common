@@ -1,0 +1,4 @@
+#!/bin/bash
+# set -x
+runhugo levpoem https://levpoem.co.il & # Use on DO server
+runhugo heartbt https://heartbt.co.il # Use on DO server
