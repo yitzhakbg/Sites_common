@@ -5,4 +5,4 @@ See [utils/fmks](https://github.com/yitzhakbg/Sites_common/blob/master/utils/fmk
 
 Highly efficient Alpine Linux Docker containers, static assets served from [Cloudflare](https://www.cloudflare.com/), themes...
 Hosted on [Digital Ocean](https://www.digitalocean.com/), served through [Caddy](https://caddyserver.com)  
-See documentation at [Multi-Language Hugo Site](https://heartbt.co.il/how/Multi-Language/)
+See documentation at [Multi-Language Hugo Site](https://heartbt.co.il/how/multi-language/)
