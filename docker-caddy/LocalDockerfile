@@ -1,17 +1,17 @@
 FROM gliderlabs/alpine:latest
 MAINTAINER Yitzhak Bar Geva <yitzhakbargeva@gmail.com>
 
-ENV CADDY_VERSION=0.10.4
-ENV HUGO_VERSION=0.25.1
-RUN apk add --update wget curl ca-certificates bash git rsync sudo && \
+ENV CADDY_VERSION=0.10.14
+ENV HUGO_VERSION=0.40.2
+RUN apk --update add --no-cache wget curl ca-certificates bash gnupg git rsync sudo && \
 #
   wget --no-check-certificate https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -O - | tar zx && mv hugo /usr/bin && \
-  curl -fsSL https://getcaddy.com | bash -s http.git && \
+  curl -fsSL https://getcaddy.com | bash -s personal http.git && \
 # Move Caddy into /usr/bin before it gets clobbered by mapping utils onto /usr/local/bin
   mv /usr/local/bin/caddy /usr/bin && \
-#  wget http://nl.alpinelinux.org/alpine/edge/testing/x86_64/entr-3.3-r0.apk && apk add --allow-untrusted entr-3.3-r0.apk && \
-#  rm -fr entr-3.3-r0.apk && \
-  apk del wget ca-certificates && \
+#  wget http://nl.alpinelinux.org/alpine/edge/testing/x86_64/entr-4.0-r0.apk && apk add --allow-untrusted entr-4.0-r0.apk && \
+#  rm -fr entr-4.0-r0.apk && \
+  apk del wget ca-certificates gnupg && \
   rm /var/cache/apk/* && \
   mkdir -p /tmp/epublic /tmp/hpublic /var/www/srv/heartbt /var/www/srv/levpoem
 #
